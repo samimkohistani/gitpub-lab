@@ -1,4 +1,3 @@
-
 const drinks = [
     {
       name: "cruddy mary",
@@ -41,3 +40,4 @@ const drinks = [
       image: "https://i.imgur.com/MbVdwZz",
     },
   ]
+module.exports = drinks;
