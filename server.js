@@ -17,6 +17,9 @@ app.get("/drinks", (req, res)=>{
     });
 
 });
+app.get("/drinks/:id", (req, res) => {
+    res.send("whatever")
+});
 
 //   app.get("/drinks/:indexOfDrinksArray", (req, res) => {
 //     res.send(drinks[req.params.indexOfDrinksArray])
