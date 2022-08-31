@@ -1,31 +1,33 @@
-// REQUIRE DEPENDENCIES
-const express = require('express');
 
-// INITIALIZE EXPRESS APP
+const express = require("express");
 const app = express();
-const port = 9000;
-const drinks = require ("./models/drinks.js");
+const drinks = require("./models/drinks.js");
+const food = require("./models/food.js")
 
-
-app.get("/", function(request, response) {
-    response.send(" Welcome to the Gitpub App!")
+app.get("/", (req, res)=>{
+    res.send("Welcome to the Gitpub app!");
 });
 
 app.get("/drinks", (req, res)=>{
     res.render("drinks_index.ejs", {
-        drinks
+        drinks,
+        food,
     });
 
 });
-app.get("/drinks/:id", (req, res) => {
-    res.send("whatever")
+
+app.get("/drinks/:id", (req, res)=>{
+    res.render("drinks_show.ejs", {
+        drink : drinks[req.params.id],
+    });
+})
+
+app.get("/drinks/food/:id", (req, res)=>{
+    res.render("food_show.ejs", {
+        food : food[req.params.id],
+    });
 });
 
-//   app.get("/drinks/:indexOfDrinksArray", (req, res) => {
-//     res.send(drinks[req.params.indexOfDrinksArray])
-//   })
-
-// TELL OUR APP TO LISTEN ON PORT...
-app.listen(port, ()=>{
-    console.log(`listening on port `, port)
+app.listen(9000, ()=>{
+    console.log("listening");
 });
