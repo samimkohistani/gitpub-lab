@@ -7,6 +7,14 @@
   </head>
   <body>
     <h1>Welcome to gitpub</h1>
+    <h2> Thirsty?</h2>
+    <ul>
+        <% for(let i=0; i < drinks.length; i++){%>
+        <li>
+            <a href="/drinks/<%=i%>"><%=drinks[i].name %></a>
+        </li>
+    <% } %>
+    </ul>
   </body>
 </html>
 
@@ -14,5 +22,8 @@
     body {
       color: blanchedalmond;
       background-color: steelblue;
+    }
+    li{
+        text-transform: capitalize;
     }
   </style>
